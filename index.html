@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countdown Timer with PNG Background</title>
+    <title>Fullscreen Countdown Timer</title>
     <style>
-        /* Styling for full-page layout */
+        /* Fullscreen styling for layout */
         body, html { 
             margin: 0; 
             padding: 0; 
@@ -15,22 +15,17 @@
             align-items: center; 
             justify-content: center; 
             overflow: hidden; 
-        }
-
-        /* Background image styling */
-        body {
-            background: url('https://github.com/thomasvalisone/countdown-page/raw/main/background.png') no-repeat center center fixed; /* GitHub image link */
+            background: url('https://github.com/thomasvalisone/countdown-page/raw/main/background.png') no-repeat center center fixed;
             background-size: cover;
         }
 
         /* Countdown text styling */
         #countdown { 
             color: white; 
-            font-size: 3em; 
-            text-align: center; 
-            background: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
-            padding: 20px;
-            border-radius: 8px;
+            font-size: 10vw; /* Makes the font size responsive to screen width */
+            text-align: center;
+            font-weight: bold;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7); /* Shadow for better contrast against background */
         }
     </style>
 </head>
