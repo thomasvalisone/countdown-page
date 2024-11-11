@@ -22,10 +22,11 @@
         /* Countdown text styling */
         #countdown { 
             color: white; 
-            font-size: 10vw; /* Makes the font size responsive to screen width */
+            font-size: 20vw; /* Further increased for fullscreen effect */
             text-align: center;
             font-weight: bold;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7); /* Shadow for better contrast against background */
+            line-height: 1; /* Reduces space around numbers */
+            text-shadow: 4px 4px 20px rgba(0, 0, 0, 0.7); /* Stronger shadow for contrast */
         }
     </style>
 </head>
@@ -42,20 +43,4 @@
             const now = new Date().getTime();
             const distance = targetDate - now;
 
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById("countdown").innerText = `${hours}:${minutes}:${seconds}`;
-
-            if (distance < 0) {
-                document.getElementById("countdown").innerText = "EXPIRED";
-                clearInterval(countdownInterval);
-            }
-        }
-
-        const countdownInterval = setInterval(updateCountdown, 1000);
-    </script>
-
-</body>
-</html>
+            const hours =
