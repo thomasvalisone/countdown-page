@@ -23,7 +23,7 @@
 
         /* "Moment of Truth" text styling */
         #title {
-            font-size: 2vw;
+            font-size: 3vw; /* Increased font size */
             margin-bottom: 10px;
             text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
         }
@@ -31,6 +31,7 @@
         /* Countdown styling */
         #countdown-container {
             display: flex;
+            align-items: center;
             text-align: center;
             font-weight: bold;
             text-shadow: 4px 4px 20px rgba(0, 0, 0, 0.7);
@@ -45,6 +46,12 @@
             font-size: 2vw; /* Label size */
             margin-top: -20px;
         }
+
+        /* Colon styling */
+        .colon {
+            font-size: 15vw;
+            line-height: 1;
+        }
     </style>
 </head>
 <body>
@@ -58,10 +65,12 @@
             <div id="hours">00</div>
             <div class="label">Hours</div>
         </div>
+        <div class="colon">:</div> <!-- Colon between hours and minutes -->
         <div class="countdown-segment">
             <div id="minutes">00</div>
             <div class="label">Minutes</div>
         </div>
+        <div class="colon">:</div> <!-- Colon between minutes and seconds -->
         <div class="countdown-segment">
             <div id="seconds">00</div>
             <div class="label">Seconds</div>
