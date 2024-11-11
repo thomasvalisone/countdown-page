@@ -65,7 +65,7 @@
     <div id="countdown-container">
         <div class="countdown-segment" id="hours">00</div>
         <div class="colon">:</div>
-        <div class="countdown-segment" id="minutes">02</div>
+        <div class="countdown-segment" id="minutes">00</div>
         <div class="colon">:</div>
         <div class="countdown-segment" id="seconds">00</div>
     </div>
@@ -74,8 +74,12 @@
     <img src="https://github.com/thomasvalisone/countdown-page/raw/main/long-white.png" alt="Logo" id="logo">
 
     <script>
-        // Set the target date to 2 minutes from now
-        const targetDate = new Date().getTime() + 2 * 60 * 1000; // 2 minutes in the future
+        // Set the target date to tomorrow at 7 PM CET (UTC+1)
+        const now = new Date();
+        const targetDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 19, 0, 0); // Today at 7 PM CET (UTC+1)
+        
+        // Adjust for UTC+1 by adding 1 hour (in milliseconds)
+        targetDate.setHours(targetDate.getHours() + 1); 
 
         function updateCountdown() {
             const now = new Date().getTime();
@@ -86,14 +90,17 @@
                 return number < 10 ? '0' + number : number;
             }
 
+            const hours = formatNumber(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
             const minutes = formatNumber(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
             const seconds = formatNumber(Math.floor((distance % (1000 * 60)) / 1000));
 
             // Update the countdown display
+            document.getElementById("hours").innerText = hours;
             document.getElementById("minutes").innerText = minutes;
             document.getElementById("seconds").innerText = seconds;
 
             if (distance < 0) {
+                document.getElementById("hours").innerText = "00";
                 document.getElementById("minutes").innerText = "00";
                 document.getElementById("seconds").innerText = "00";
                 clearInterval(countdownInterval);
