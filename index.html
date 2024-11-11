@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fullscreen Countdown Timer</title>
     <style>
-        /* Fullscreen styling for layout */
         body, html { 
             margin: 0; 
             padding: 0; 
@@ -19,29 +18,31 @@
             background-size: cover;
         }
 
-        /* Countdown text styling */
         #countdown { 
             color: white; 
-            font-size: 20vw; /* Further increased for fullscreen effect */
             text-align: center;
             font-weight: bold;
-            line-height: 1; /* Reduces space around numbers */
-            text-shadow: 4px 4px 20px rgba(0, 0, 0, 0.7); /* Stronger shadow for contrast */
+            line-height: 1;
+            text-shadow: 4px 4px 20px rgba(0, 0, 0, 0.7);
+            font-size: 20vw;
         }
     </style>
 </head>
 <body>
 
-    <!-- Countdown display -->
-    <div id="countdown">00:00:00</div>
+    <div id="countdown" style="font-size: 20vw;">00:00:00</div>
 
     <script>
-        // JavaScript countdown code
+        // Target date for countdown (ensure this is set correctly in UTC)
         const targetDate = new Date("2024-11-12T18:00:00Z").getTime();
 
         function updateCountdown() {
             const now = new Date().getTime();
             const distance = targetDate - now;
+
+            console.log("Current Time:", now);
+            console.log("Target Date:", targetDate);
+            console.log("Distance:", distance);
 
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
