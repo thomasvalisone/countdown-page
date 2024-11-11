@@ -3,19 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countdown Timer</title>
+    <title>Countdown Timer with Image Background</title>
     <style>
-        /* CSS for styling */
-        body { font-family: Arial, sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
-        #countdown { font-size: 3em; }
+        /* Styling for full-page layout */
+        body, html { 
+            margin: 0; 
+            padding: 0; 
+            height: 100%; 
+            font-family: Arial, sans-serif; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            overflow: hidden; 
+        }
+
+        /* Background image styling */
+        body {
+            background: url('YOUR_IMAGE_PATH.jpg') no-repeat center center fixed; /* Replace with your image path */
+            background-size: cover;
+        }
+
+        /* Countdown text styling */
+        #countdown { 
+            color: white; 
+            font-size: 3em; 
+            text-align: center; 
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
+            padding: 20px;
+            border-radius: 8px;
+        }
     </style>
 </head>
 <body>
+
+    <!-- Countdown display -->
     <div id="countdown">00:00:00</div>
 
     <script>
         // JavaScript countdown code
-        const targetDate = new Date("2024-12-31T23:59:59").getTime();
+        const targetDate = new Date("2024-11-12T18:00:00Z").getTime();
 
         function updateCountdown() {
             const now = new Date().getTime();
@@ -35,5 +61,6 @@
 
         const countdownInterval = setInterval(updateCountdown, 1000);
     </script>
+
 </body>
 </html>
