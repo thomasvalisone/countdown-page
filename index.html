@@ -74,11 +74,42 @@
     <img src="https://github.com/thomasvalisone/countdown-page/raw/main/long-white.png" alt="Logo" id="logo">
 
     <script>
-        // Set the target date to tomorrow at 7 PM CET (UTC+1)
+        // Set the target date to today at 7 PM CET (UTC+1)
         const now = new Date();
         const targetDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 19, 0, 0); // Today at 7 PM CET (UTC+1)
         
-        // Add 24 hours to the target date to reflect 1 full day + 6 hours more
-        targetDate.setHours(targetDate.getHours() + 24); 
+        // Add 24 hours to the hours section
+        targetDate.setHours(targetDate.getHours() + 24);  // Adding 24 hours to the countdown
 
         function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            // Ensure two digits by padding with zero if needed
+            function formatNumber(number) {
+                return number < 10 ? '0' + number : number;
+            }
+
+            // Calculate hours, minutes, and seconds
+            const hours = formatNumber(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+            const minutes = formatNumber(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
+            const seconds = formatNumber(Math.floor((distance % (1000 * 60)) / 1000));
+
+            // Update the countdown display
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+
+            if (distance < 0) {
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+                clearInterval(countdownInterval);
+            }
+        }
+
+        const countdownInterval = setInterval(updateCountdown, 1000);
+    </script>
+
+</body>
+</html>
