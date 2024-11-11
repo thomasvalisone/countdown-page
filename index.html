@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countdown Timer with Labels</title>
+    <title>Countdown Timer with Logo</title>
     <style>
         /* Fullscreen styling */
         body, html { 
@@ -23,7 +23,7 @@
 
         /* "Moment of Truth" text styling */
         #title {
-            font-size: 3vw; /* Increased font size */
+            font-size: 3vw;
             margin-bottom: 10px;
             text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
         }
@@ -42,15 +42,17 @@
             margin: 0 10px;
         }
 
-        .label {
-            font-size: 2vw; /* Label size */
-            margin-top: -20px;
-        }
-
         /* Colon styling */
         .colon {
             font-size: 15vw;
             line-height: 1;
+        }
+
+        /* Logo styling */
+        #logo {
+            position: absolute;
+            bottom: 20px;
+            width: 10vw; /* Adjust the size of the logo as needed */
         }
     </style>
 </head>
@@ -61,21 +63,15 @@
 
     <!-- Countdown display -->
     <div id="countdown-container">
-        <div class="countdown-segment">
-            <div id="hours">00</div>
-            <div class="label">Hours</div>
-        </div>
-        <div class="colon">:</div> <!-- Colon between hours and minutes -->
-        <div class="countdown-segment">
-            <div id="minutes">00</div>
-            <div class="label">Minutes</div>
-        </div>
-        <div class="colon">:</div> <!-- Colon between minutes and seconds -->
-        <div class="countdown-segment">
-            <div id="seconds">00</div>
-            <div class="label">Seconds</div>
-        </div>
+        <div class="countdown-segment" id="hours">00</div>
+        <div class="colon">:</div>
+        <div class="countdown-segment" id="minutes">00</div>
+        <div class="colon">:</div>
+        <div class="countdown-segment" id="seconds">00</div>
     </div>
+
+    <!-- Logo at the bottom -->
+    <img src="https://github.com/thomasvalisone/countdown-page/blob/main/long-white.png" alt="Logo" id="logo">
 
     <script>
         // Target date for countdown
