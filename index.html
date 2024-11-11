@@ -21,11 +21,10 @@
             color: white;
         }
 
-        /* "Moment of Truth" text styling */
-        #title {
-            font-size: 3vw;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+        /* Bubblemaps logo at the top */
+        #bubblemaps-logo {
+            width: 20vw; /* Adjust the size of the Bubblemaps logo */
+            margin-bottom: 20px; /* Adds some space between the logo and the countdown */
         }
 
         /* Countdown styling */
@@ -47,19 +46,12 @@
             font-size: 15vw;
             line-height: 1;
         }
-
-        /* Logo styling */
-        #logo {
-            position: absolute;
-            bottom: 20px;
-            width: 15vw; /* Increased size by 50% (from 10vw to 15vw) */
-        }
     </style>
 </head>
 <body>
 
-    <!-- "Moment of Truth" Text -->
-    <div id="title">Moment of Truth</div>
+    <!-- Bubblemaps logo at the top -->
+    <img src="https://github.com/thomasvalisone/countdown-page/raw/main/long-white.png" alt="Bubblemaps Logo" id="bubblemaps-logo">
 
     <!-- Countdown display -->
     <div id="countdown-container">
@@ -69,9 +61,6 @@
         <div class="colon">:</div>
         <div class="countdown-segment" id="seconds">00</div>
     </div>
-
-    <!-- Logo at the bottom -->
-    <img src="https://github.com/thomasvalisone/countdown-page/raw/main/long-white.png" alt="Logo" id="logo">
 
     <script>
         // Set the target date to November 13th at 7 PM CET (UTC+1)
